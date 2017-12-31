@@ -1,0 +1,31 @@
+<!--
+/**
+ * Copyright © MageKey. All rights reserved.
+ */
+-->
+<div class="item product product-item" data-role="product-item">
+    <div class="product-item-info">
+        <a data-bind="attr: {href: item.product_url, title: item.product_name}" tabindex="-1" class="product-item-photo">
+            <!-- ko foreach: $parent.getRegion('itemImage') -->
+                <!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+            <!-- /ko -->
+        </a>
+
+        <div class="product-item-details">
+            <strong class="product-item-name">
+                <a data-bind="attr: {href: item.product_url}, text: item.product_name"></a>
+            </strong>
+
+            <div class="product-item-sku">
+                <span data-bind="text: item.product_sku"></span>
+            </div>
+
+            <div class="product-item-pricing">
+                <!-- ko foreach: $parent.getRegion('priceSidebar') -->
+                    <!-- ko template: {name: getTemplate(), data: item.product_price, as: 'price'} --><!-- /ko -->
+                <!-- /ko -->
+                <a class="buy action primary" data-bind="i18n: 'Buy', attr: {href: item.product_url, title: item.product_name}"></a>
+            </div>
+        </div>
+    </div>
+</div>

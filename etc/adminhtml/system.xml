@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageKey. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mgk_adcpopup" translate="label" type="text" sortOrder="301" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Added to cart popup</label>
+            <tab>sales</tab>
+            <class>mgk-adcpopup</class>
+            <resource>MageKey_AdcPopup::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <attribute type="expanded">1</attribute>
+                <field id="enabled" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="product_list" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product List</label>
+                <attribute type="expanded">1</attribute>
+                <field id="enabled" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="fetch_type" translate="label" sortOrder="20" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fetch products from</label>
+                    <source_model>MageKey\AdcPopup\Model\Config\Source\FetchType</source_model>
+                </field>
+                <field id="specific_categories" translate="label" sortOrder="30" type="multiselect" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Specific Categories</label>
+                    <depends>
+                        <field id="fetch_type">specific_categories</field>
+                    </depends>
+                    <source_model>MageKey\AdcPopup\Model\Config\Source\CategoryList</source_model>
+                </field>
+                <field id="product_count" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Products Count</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageKey. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="mgk.cartpopup"
+                   template="MageKey_AdcPopup::popup.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="mgkAdcPopup" xsi:type="array">
+                                <item name="component" xsi:type="string">MageKey_AdcPopup/js/view/popup</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">MageKey_AdcPopup/popup</item>
+                                    <item name="continue_url" xsi:type="url" path="/"/>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="cartItem" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/cart-item</item>
+                                            <item name="displayArea" xsi:type="string">cartItem</item>
+                                        </item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="item.image" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Catalog/js/view/image</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Magento_Catalog/product/image</item>
+                                                    <item name="displayArea" xsi:type="string">itemImage</item>
+                                                </item>
+                                            </item>
+                                            <item name="item.price.sidebar" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Magento_Checkout/minicart/item/price</item>
+                                                    <item name="displayArea" xsi:type="string">priceSidebar</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="productItem" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/product-item</item>
+                                            <item name="displayArea" xsi:type="string">productItem</item>
+                                        </item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="item.image" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Catalog/js/view/image</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Magento_Catalog/product/image</item>
+                                                    <item name="displayArea" xsi:type="string">itemImage</item>
+                                                </item>
+                                            </item>
+                                            <item name="item.price.sidebar" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Magento_Checkout/minicart/item/price</item>
+                                                    <item name="displayArea" xsi:type="string">priceSidebar</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="summaryItem" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/summary-item</item>
+                                            <item name="displayArea" xsi:type="string">summaryItem</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

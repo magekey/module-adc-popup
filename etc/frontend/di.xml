@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageKey. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="mgk_adcpopup" xsi:type="string">MageKey\AdcPopup\CustomerData\Popup</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\CustomerData\ItemPoolInterface">
+        <plugin name="mgk-adcpopup-itempool" type="MageKey\AdcPopup\CustomerData\ItemPoolPlugin" />
+    </type>
+</config>

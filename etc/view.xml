@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © MageKey. All rights reserved.
+ */
+-->
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+    <media>
+        <images module="Magento_Catalog">
+            <image id="mgk_adcpopup_cart_single" type="small_image">
+                <width>240</width>
+                <height>300</height>
+            </image>
+            <image id="mgk_adcpopup_cart_multi" type="thumbnail">
+                <width>88</width>
+                <height>110</height>
+            </image>
+            <image id="mgk_adcpopup_product_list" type="thumbnail">
+                <width>100</width>
+                <height>100</height>
+            </image>
+        </images>
+    </media>
+</view>

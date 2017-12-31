@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageKey. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mgk_adcpopup>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <product_list>
+                <enabled>1</enabled>
+                <fetch_type>current_categories</fetch_type>
+                <specific_categories></specific_categories>
+                <product_count>4</product_count>
+            </product_list>
+        </mgk_adcpopup>
+    </default>
+</config>

@@ -1,0 +1,22 @@
+// /**
+//  * Copyright © MageKey. All rights reserved.
+//  */
+
+.setMageKeyLogo(@module; @position) {
+    background-image: url('../@{module}/images/logo-menu.png');
+    background-repeat: no-repeat;
+    background-position: @position;
+}
+
+.admin__page-nav-item,
+.admin__page-nav-item._active {
+    &.mgk-adcpopup {
+        .admin__page-nav-link,
+        .admin__page-nav-link:hover {
+            .setMageKeyLogo(
+                'MageKey_AdcPopup',
+                right 2rem center
+            );
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<!--
+/**
+ * Copyright © MageKey. All rights reserved.
+ */
+-->
+<div data-bind='
+        afterRender: setModalElement,
+        blockLoader: isLoading,
+        css: {"mgk-adcpopup-block": true, "has-category": productList().length}
+     '
+     style="display: none">
+
+    <div class="adcpopup-content">
+        <div class="content-inner">
+            <ol data-bind="css: {'adcpopup-cart': true, 'product-items': true, 'multi': isMultiple()}, foreach: { data: items(), as: 'item' }">
+                <!-- ko foreach: $parent.getRegion('cartItem') -->
+                    <!-- ko template: {name: getTemplate(), data: item, as: 'item'} --><!-- /ko -->
+                <!-- /ko -->
+            </ol>
+            <!-- ko if: productList().length -->
+            <h3 data-bind="i18n: 'You may also be interested in'"></h3>
+            <ol class="adcpopup-category product-items" data-bind="foreach: { data: productList(), as: 'item' }">
+                <!-- ko foreach: $parent.getRegion('productItem') -->
+                    <!-- ko template: {name: getTemplate(), data: item, as: 'item'} --><!-- /ko -->
+                <!-- /ko -->
+            </ol>
+            <!-- /ko -->
+        </div>
+    </div>
+    <div class="adcpopup-summary">
+        <div class="content-inner">
+            <div class="shopping-continue">
+                <a data-bind="i18n: 'Continue Shopping', attr: {href: continue_url, title: 'Continue Shopping'}"></a>
+            </div>
+            <div class="shopping-cart">
+                <h3 class="summary-title" data-bind="i18n: 'Shopping Cart'"></h3>
+                <div class="summary-items" data-bind="foreach: { data: summaryItems(), as: 'item' }">
+                    <!-- ko foreach: $parent.getRegion('summaryItem') -->
+                        <!-- ko template: {name: getTemplate(), data: item, as: 'item'} --><!-- /ko -->
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
