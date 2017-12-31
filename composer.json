@@ -1,6 +1,6 @@
 {
     "name": "magekey/module-adc-popup",
-    "description": "N/A",
+    "description": "Magento 2 Added to Cart Popup",
     "require": {
         "php": "7.0.2|7.0.4|~7.0.6|~7.1.0"
     },
