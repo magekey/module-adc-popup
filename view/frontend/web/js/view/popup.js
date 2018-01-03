@@ -65,7 +65,7 @@ define([
             var self = this,
                 cartData = customerData.get('cart')(),
                 items = [];
-                
+
             if (cartData.items && cartData.items.length) {
                 _.each(cartData.items, function (value, key) {
                     if ($.inArray(value.item_id, itemsIds) >= 0) {

@@ -17,7 +17,7 @@ define([
             var options = {
                 'title': $t('Added to your shopping cart'),
                 'type': 'popup',
-                'modalClass': 'mgk-adc-popup',
+                'modalClass': 'mgk-adcpopup-modal',
                 'responsive': true,
                 'buttons': []
             };
