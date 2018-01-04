@@ -9,6 +9,11 @@ use Magento\Store\Model\ScopeInterface;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
+     * Registry key
+     */
+    const REGISTER_ITEMS_KEY = 'mgk_adcpopup_items';
+
+    /**
      * General
      */
     const XML_PATH_GENERAL_ENABLED = 'mgk_adcpopup/general/enabled';

@@ -5,7 +5,10 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_quote_product_add_after">
+        <observer name="mgk_adcpopup_quote_add_after" instance="MageKey\AdcPopup\Observer\QuoteAddAfter" />
+    </event>
     <event name="checkout_cart_add_product_complete">
-        <observer name="mgk_adcpopup_cart_added_product" instance="MageKey\AdcPopup\Observer\CartUpdated" />
+        <observer name="mgk_adcpopup_cart_add_complete" instance="MageKey\AdcPopup\Observer\CartAddComplete" />
     </event>
 </config>
