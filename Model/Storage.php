@@ -41,7 +41,7 @@ class Storage
     public function getData($key)
     {
         if (!isset($this->_data[$key])) {
-            $this->_data[$key] = $this->checkoutSession->getData(static::SESS_PREFIX . $key, false);
+            $this->_data[$key] = $this->checkoutSession->getData(static::SESS_PREFIX . $key, true);
         }
         return $this->_data[$key];
     }

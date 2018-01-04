@@ -13,7 +13,7 @@
     <div class="adcpopup-content">
         <div class="content-inner">
             <div class="content-cart">
-                <ol data-bind="css: {'adcpopup-cart': true, 'product-items': true, 'multi': isMultiple()}, foreach: { data: items(), as: 'item' }">
+                <ol data-bind="css: {'product-items': true, 'multi': isMultiple()}, foreach: { data: items(), as: 'item' }">
                     <!-- ko foreach: $parent.getRegion('cartItem') -->
                         <!-- ko template: {name: getTemplate(), data: item, as: 'item'} --><!-- /ko -->
                     <!-- /ko -->
@@ -21,7 +21,7 @@
             </div>
             <!-- ko if: productList().length -->
             <div class="content-category">
-                <h3 data-bind="i18n: 'You may also be interested in'"></h3>
+                <div class="sub-title" data-bind="i18n: 'You may also be interested in'"></div>
                 <ol class="adcpopup-category product-items" data-bind="foreach: { data: productList(), as: 'item' }">
                     <!-- ko foreach: $parent.getRegion('productItem') -->
                         <!-- ko template: {name: getTemplate(), data: item, as: 'item'} --><!-- /ko -->
