@@ -18,6 +18,7 @@
                                 <item name="config" xsi:type="array">
                                     <item name="template" xsi:type="string">MageKey_AdcPopup/popup</item>
                                     <item name="continue_url" xsi:type="url" path="/"/>
+                                    <item name="checkout_url" xsi:type="url" path="checkout"/>
                                 </item>
                                 <item name="children" xsi:type="array">
                                     <item name="cartItem" xsi:type="array">
