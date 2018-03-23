@@ -65,11 +65,20 @@
 
         <div class="details-qty qty">
             <label class="label" data-bind="i18n: 'Qty'"></label>
+            <!-- ko if: $parents[2].updateItemQtyUrl -->
             <input type="number"
                    class="item-qty"
                    readonly="readonly"
                    data-bind="value: qty, mageInit: {'MageKey_AdcPopup/js/spinner': {'item_id': item_id}}"
                 />
+            <!-- /ko -->
+            <!-- ko ifnot: $parents[2].updateItemQtyUrl -->
+            <span class="qty-text" data-bind="text: qty"></span>
+            <!-- /ko -->
+            <a href="#" data-bind="visible: $parents[2].removeItemUrl, attr: {'data-cart-item': item_id, title: $t('Remove item')}, click: function () { $parents[2].removeItem(this) }"
+               class="action delete">
+                <span data-bind="i18n: 'Remove'"></span>
+            </a>
         </div>
 
         <div data-role="popup-messages" class="messages">

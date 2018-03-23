@@ -9,8 +9,9 @@ define([
     'underscore',
     'MageKey_AdcPopup/js/model/popup',
     'Magento_Customer/js/customer-data',
+    'Magento_Ui/js/modal/confirm',
     'mage/validation'
-], function (Component, $, ko, _, cartPopup, customerData) {
+], function (Component, $, ko, _, cartPopup, customerData, confirm) {
     'use strict';
 
     return Component.extend({
@@ -19,6 +20,12 @@ define([
         productList: ko.observableArray([]),
         summaryItems: ko.observableArray([]),
         messages: cartPopup.messages,
+        updateItemQtyUrl: window.checkout && window.checkout.updateItemQtyUrl
+            ? window.checkout.updateItemQtyUrl
+            : null,
+        removeItemUrl: window.checkout && window.checkout.removeItemUrl
+            ? window.checkout.removeItemUrl
+            : null,
 
         /**
          * @override
@@ -80,6 +87,37 @@ define([
 
         isMultiple: function () {
             return this.items().length > 1;
+        },
+
+        removeItem: function (item) {
+            var self = this;
+            if (self.removeItemUrl && item.item_id) {
+                confirm({
+                    content: $.mage.__('Are you sure you would like to remove this item from the shopping cart?'),
+                    actions: {
+                        confirm: function () {
+                            $.ajax({
+                                url: self.removeItemUrl,
+                                type: 'post',
+                                dataType: 'json',
+                                showLoader: true,
+                                data: {
+                                    item_id: item.item_id,
+                                    form_key: $.mage.cookies.get('form_key')
+                                },
+                                success: function (response) {
+                                    if (response.error_message) {
+                                        cartPopup.messages.addErrorMessage({message: response.error_message});
+                                    } else {
+                                        cartPopup.closeModal();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+            return false;
         }
     });
 });
