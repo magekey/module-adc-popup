@@ -75,10 +75,7 @@
             <!-- ko ifnot: $parents[2].updateItemQtyUrl -->
             <span class="qty-text" data-bind="text: qty"></span>
             <!-- /ko -->
-            <a href="#" data-bind="visible: $parents[2].removeItemUrl, attr: {'data-cart-item': item_id, title: $t('Remove item')}, click: function () { $parents[2].removeItem(this) }"
-               class="action delete">
-                <span data-bind="i18n: 'Remove'"></span>
-            </a>
+
         </div>
 
         <div data-role="popup-messages" class="messages">
@@ -88,5 +85,13 @@
             </div>
             <!--/ko-->
         </div>
+
+        <div class="product-item-actions">
+            <a href="#" data-bind="visible: $parents[2].removeItemUrl, attr: {'data-cart-item': item_id, title: $t('Remove item')}, click: function () { $parents[2].removeItem(this) }"
+               class="action delete primary">
+                <span data-bind="i18n: 'Remove'"></span>
+            </a>
+        </div>
+
     </div>
 </li>

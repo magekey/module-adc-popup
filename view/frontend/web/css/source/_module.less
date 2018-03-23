@@ -128,7 +128,6 @@
                                     &-qty {
                                         font-weight: @mgk-adcpopup__base__label__font-weight;
                                         margin-top: 2rem;
-                                        overflow: hidden;
 
                                         .qty-text {
                                             display: inline-block;
@@ -171,11 +170,14 @@
                                                 border-left: 1px solid @mgk-adcpopup__box1__border-color;
                                             }
                                         }
-                                        .action {
-                                            &.delete {
-                                                float: right;
-                                                font-size: 1.2rem;
-                                            }
+                                    }
+                                }
+                                &-actions {
+                                    margin-top: 2rem;
+
+                                    .action {
+                                        &.delete {
+                                            font-size: 1.2rem;
                                         }
                                     }
                                 }
