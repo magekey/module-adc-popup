@@ -5,12 +5,14 @@
 define([
     'jquery',
     'Magento_Ui/js/modal/modal',
-    'mage/translate'
-],function ($, modal, $t) {
+    'mage/translate',
+    'Magento_Ui/js/model/messageList'
+],function ($, modal, $t, messageList) {
     'use strict';
 
     return {
         modalWindow: null,
+        messages: messageList,
 
         /** Create popup window */
         createPopUp: function (element) {

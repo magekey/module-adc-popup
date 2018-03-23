@@ -65,7 +65,19 @@
 
         <div class="details-qty qty">
             <label class="label" data-bind="i18n: 'Qty'"></label>
-            <span data-bind="text: qty"></span>
+            <input type="number"
+                   class="item-qty"
+                   readonly="readonly"
+                   data-bind="value: qty, mageInit: {'MageKey_AdcPopup/js/spinner': {'item_id': item_id}}"
+                />
+        </div>
+
+        <div data-role="popup-messages" class="messages">
+            <!-- ko foreach: $parents[2].messages.getErrorMessages() -->
+            <div role="alert" class="message message-error error">
+                <div data-bind="text: $data"></div>
+            </div>
+            <!--/ko-->
         </div>
     </div>
 </li>

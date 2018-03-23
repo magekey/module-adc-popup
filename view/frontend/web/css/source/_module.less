@@ -18,6 +18,7 @@
 @mgk-adcpopup__cart__details__width: 60%;
 @mgk-adcpopup__cart__name__font-size: @h2__font-size;
 @mgk-adcpopup__cart__price__font-size: 22;
+@mgk-adcpopup__cart__qty__height: 3.3rem;
 
 //  Multi Cart
 @mgk-adcpopup__multi-cart__photo__width: 17%;
@@ -128,11 +129,40 @@
                                         font-weight: @mgk-adcpopup__base__label__font-weight;
                                         margin-top: 2rem;
 
-                                        span {
+                                        .ui-spinner {
                                             display: inline-block;
-                                            border: 1px solid @mgk-adcpopup__box1__border-color;
-                                            padding: 0.8rem 1.4rem;
                                             margin-left: 2rem;
+                                            border: 1px solid @mgk-adcpopup__box1__border-color;
+                                            border-radius: 5px;
+
+                                            &-input {
+                                                width: 4rem;
+                                                text-align: center;
+                                                height: @mgk-adcpopup__cart__qty__height;
+                                                background: none;
+                                                border: none;
+                                            }
+                                            &-down, &-up {
+                                                height: @mgk-adcpopup__cart__qty__height;
+                                                cursor: pointer;
+                                                text-align: center;
+                                                width: 2.3rem;
+
+                                                &:hover {
+                                                    text-decoration: none;
+                                                }
+                                                > span {
+                                                    font-size: 2.4rem;
+                                                }
+                                            }
+                                            &-down {
+                                                float: left;
+                                                border-right: 1px solid @mgk-adcpopup__box1__border-color;
+                                            }
+                                            &-up {
+                                                float: right;
+                                                border-left: 1px solid @mgk-adcpopup__box1__border-color;
+                                            }
                                         }
                                     }
                                 }
@@ -265,6 +295,11 @@
                             text-align: center;
                         }
                     }
+                }
+            }
+            .messages {
+                .message {
+                    margin: 1rem 0;
                 }
             }
             &.has-category {

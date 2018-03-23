@@ -18,6 +18,7 @@ define([
         items: ko.observableArray([]),
         productList: ko.observableArray([]),
         summaryItems: ko.observableArray([]),
+        messages: cartPopup.messages,
 
         /**
          * @override
