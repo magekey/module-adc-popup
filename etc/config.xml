@@ -15,7 +15,7 @@
                 <enabled>1</enabled>
                 <fetch_type>current_categories</fetch_type>
                 <specific_categories></specific_categories>
-                <product_count>4</product_count>
+                <product_count>8</product_count>
             </product_list>
         </mgk_adcpopup>
     </default>
