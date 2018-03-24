@@ -19,24 +19,24 @@ define([
             min: 1
         },
 
-        _value: function( value, allowAny ) {
+        _value: function ( value, allowAny ) {
             var oldValue = this.element.val();
-    		this._super(value, allowAny);
+            this._super(value, allowAny);
             if (oldValue != value) {
                 cartPopup.messages.clear();
                 this._updateItemQty(oldValue, value);
             }
-    	},
+        },
 
-        _buttonHtml: function() {
-    		return "" +
-    			"<a class='ui-spinner-button ui-spinner-up ui-corner-tr'>" +
-    				"<span class='ui-icon " + this.options.icons.up + "'>&#43;</span>" +
-    			"</a>" +
-    			"<a class='ui-spinner-button ui-spinner-down ui-corner-br'>" +
-    				"<span class='ui-icon " + this.options.icons.down + "'>&#8722;</span>" +
-    			"</a>";
-    	},
+        _buttonHtml: function () {
+            return "" +
+                "<a class='ui-spinner-button ui-spinner-up ui-corner-tr'>" +
+                    "<span class='ui-icon " + this.options.icons.up + "'>&#43;</span>" +
+                "</a>" +
+                "<a class='ui-spinner-button ui-spinner-down ui-corner-br'>" +
+                    "<span class='ui-icon " + this.options.icons.down + "'>&#8722;</span>" +
+                "</a>";
+        },
 
         _updateItemQty: function (oldValue, newValue) {
             var self = this;
