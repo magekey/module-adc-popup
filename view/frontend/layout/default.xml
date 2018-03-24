@@ -42,6 +42,13 @@
                                                     <item name="displayArea" xsi:type="string">priceSidebar</item>
                                                 </item>
                                             </item>
+                                            <item name="item.actions.delete" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">MageKey_AdcPopup/cart-item/action-delete</item>
+                                                    <item name="displayArea" xsi:type="string">itemActions</item>
+                                                </item>
+                                            </item>
                                         </item>
                                     </item>
                                     <item name="productItem" xsi:type="array">

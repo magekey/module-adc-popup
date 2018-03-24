@@ -1,0 +1,13 @@
+<!--
+/**
+ * Copyright © MageKey. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<a href="#"
+   data-bind="
+    visible: $parents[4].removeItemUrl,
+    attr: {'data-cart-item': item_id, title: $t('Remove item')}, click: function () { $parents[4].removeItem(this) }"
+   class="action delete primary">
+    <span data-bind="i18n: 'Remove'"></span>
+</a>
