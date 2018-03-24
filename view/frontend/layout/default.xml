@@ -24,7 +24,7 @@
                                     <item name="cartItem" xsi:type="array">
                                         <item name="component" xsi:type="string">uiComponent</item>
                                         <item name="config" xsi:type="array">
-                                            <item name="template" xsi:type="string">MageKey_AdcPopup/cart-item</item>
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/cart/item</item>
                                             <item name="displayArea" xsi:type="string">cartItem</item>
                                         </item>
                                         <item name="children" xsi:type="array">
@@ -45,7 +45,7 @@
                                             <item name="item.actions.delete" xsi:type="array">
                                                 <item name="component" xsi:type="string">uiComponent</item>
                                                 <item name="config" xsi:type="array">
-                                                    <item name="template" xsi:type="string">MageKey_AdcPopup/cart-item/action-delete</item>
+                                                    <item name="template" xsi:type="string">MageKey_AdcPopup/cart/action-delete</item>
                                                     <item name="displayArea" xsi:type="string">itemActions</item>
                                                 </item>
                                             </item>
@@ -54,7 +54,7 @@
                                     <item name="productItem" xsi:type="array">
                                         <item name="component" xsi:type="string">uiComponent</item>
                                         <item name="config" xsi:type="array">
-                                            <item name="template" xsi:type="string">MageKey_AdcPopup/product-item</item>
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/product/item</item>
                                             <item name="displayArea" xsi:type="string">productItem</item>
                                         </item>
                                         <item name="children" xsi:type="array">
@@ -74,11 +74,18 @@
                                             </item>
                                         </item>
                                     </item>
-                                    <item name="summaryItem" xsi:type="array">
+                                    <item name="summary.item" xsi:type="array">
                                         <item name="component" xsi:type="string">uiComponent</item>
                                         <item name="config" xsi:type="array">
-                                            <item name="template" xsi:type="string">MageKey_AdcPopup/summary-item</item>
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/summary/item</item>
                                             <item name="displayArea" xsi:type="string">summaryItem</item>
+                                        </item>
+                                    </item>
+                                    <item name="summary.actions.delete" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/summary/action-checkout</item>
+                                            <item name="displayArea" xsi:type="string">summaryActions</item>
                                         </item>
                                     </item>
                                 </item>

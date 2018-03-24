@@ -33,7 +33,9 @@
                 </div>
             </div>
             <div class="shopping-actions">
-                <a class="action primary" data-bind="i18n: 'Proceed to Checkout', attr: {href: checkout_url, title: 'Proceed to Checkout'}"></a>
+                <!-- ko foreach: getRegion('summaryActions') -->
+                    <!-- ko template: {name: getTemplate()} --><!-- /ko -->
+                <!-- /ko -->
             </div>
         </div>
     </div>
