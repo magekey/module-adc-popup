@@ -21,3 +21,5 @@
 
 ## Versions tested
 > 2.2.2
+
+> 2.2.3
