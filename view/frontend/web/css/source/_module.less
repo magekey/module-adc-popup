@@ -10,7 +10,7 @@
 //  Base
 @mgk-adcpopup__base__label__font-weight: @font-weight__semibold;
 @mgk-adcpopup__base__sub-title__font-size: @h3__font-size;
-@mgk-adcpopup__base__content__width: 55%;
+@mgk-adcpopup__base__content__width: 60%;
 @mgk-adcpopup__base__summary__width: 40%;
 
 //  Cart
@@ -239,6 +239,7 @@
                                 }
                                 &-items {
                                     display: table;
+                                    border-collapse: collapse;
                                 }
                                 &-item {
                                     display: table-row;
@@ -255,7 +256,7 @@
                             }
                         }
                         &-actions {
-                            margin-top: 1rem;
+                            margin-top: 2rem;
 
                             .action {
                                 margin-right: 1rem;
@@ -339,11 +340,11 @@
                 &-content {
                     width: @mgk-adcpopup__base__content__width;
                     float: left;
-                    border-right: 1px solid @mgk-adcpopup__box1__border-color;
 
                     .content {
                         &-inner {
                             padding-right: 1rem;
+                            border-right: 1px solid @mgk-adcpopup__box1__border-color;
                         }
                     }
                 }
@@ -351,10 +352,28 @@
                     display: block;
                     width: @mgk-adcpopup__base__summary__width;
                     float: right;
+                    text-align: center;
+
+                    .content {
+                        &-inner {
+                            padding: 2rem;
+                        }
+                    }
 
                     .shopping {
                         &-cart {
-                            margin-top: 13%;
+                            .summary {
+                                &-items {
+                                    width: 50%;
+                                    margin: 0 auto;
+                                }
+                                &-item {
+                                    .label,
+                                    .values {
+                                        border: 1px solid @mgk-adcpopup__box1__border-color;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
