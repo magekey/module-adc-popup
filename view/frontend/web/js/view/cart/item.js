@@ -11,15 +11,15 @@ define([
     'use strict';
 
     return Component.extend({
-    	messages: cartPopup.messages,
-    	updateItemQtyUrl: window.checkout && window.checkout.updateItemQtyUrl
+        messages: cartPopup.messages,
+        updateItemQtyUrl: window.checkout && window.checkout.updateItemQtyUrl
             ? window.checkout.updateItemQtyUrl
             : null,
         removeItemUrl: window.checkout && window.checkout.removeItemUrl
-	       	? window.checkout.removeItemUrl
-	     	: null,
+            ? window.checkout.removeItemUrl
+            : null,
 
-	   	updateItemQty: function (item, newValue, callback) {
+        updateItemQty: function (item, newValue, callback) {
             cartPopup.messages.clear();
             if (this.updateItemQtyUrl) {
                 $.ajax({
@@ -37,7 +37,7 @@ define([
                             cartPopup.messages.addErrorMessage({message: response.error_message});
                         }
                         if (callback) {
-                        	callback(response);
+                            callback(response);
                         }
                     }
                 });
@@ -64,7 +64,7 @@ define([
                                     if (response.error_message) {
                                         cartPopup.messages.addErrorMessage({message: response.error_message});
                                     } else {
-                                    	cartPopup.removeItemById(item.item_id);
+                                        cartPopup.removeItemById(item.item_id);
                                     }
                                 }
                             });
