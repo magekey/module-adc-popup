@@ -17,12 +17,10 @@
                                 <item name="component" xsi:type="string">MageKey_AdcPopup/js/view/popup</item>
                                 <item name="config" xsi:type="array">
                                     <item name="template" xsi:type="string">MageKey_AdcPopup/popup</item>
-                                    <item name="continue_url" xsi:type="url" path="/"/>
-                                    <item name="checkout_url" xsi:type="url" path="checkout"/>
                                 </item>
                                 <item name="children" xsi:type="array">
                                     <item name="cartItem" xsi:type="array">
-                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="component" xsi:type="string">MageKey_AdcPopup/js/view/cart/item</item>
                                         <item name="config" xsi:type="array">
                                             <item name="template" xsi:type="string">MageKey_AdcPopup/cart/item</item>
                                             <item name="displayArea" xsi:type="string">cartItem</item>
@@ -74,10 +72,17 @@
                                             </item>
                                         </item>
                                     </item>
-                                    <item name="summary.item" xsi:type="array">
-                                        <item name="component" xsi:type="string">uiComponent</item>
+                                    <item name="summary.item.qty" xsi:type="array">
+                                        <item name="component" xsi:type="string">MageKey_AdcPopup/js/view/summary/item</item>
                                         <item name="config" xsi:type="array">
-                                            <item name="template" xsi:type="string">MageKey_AdcPopup/summary/item</item>
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/summary/qty</item>
+                                            <item name="displayArea" xsi:type="string">summaryItem</item>
+                                        </item>
+                                    </item>
+                                    <item name="summary.item.subtotal" xsi:type="array">
+                                        <item name="component" xsi:type="string">MageKey_AdcPopup/js/view/summary/item</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/summary/subtotal</item>
                                             <item name="displayArea" xsi:type="string">summaryItem</item>
                                         </item>
                                     </item>
@@ -85,6 +90,13 @@
                                         <item name="component" xsi:type="string">uiComponent</item>
                                         <item name="config" xsi:type="array">
                                             <item name="template" xsi:type="string">MageKey_AdcPopup/summary/action-checkout</item>
+                                            <item name="displayArea" xsi:type="string">summaryActions</item>
+                                        </item>
+                                    </item>
+                                    <item name="summary.actions.continue" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">MageKey_AdcPopup/summary/action-continue</item>
                                             <item name="displayArea" xsi:type="string">summaryActions</item>
                                         </item>
                                     </item>

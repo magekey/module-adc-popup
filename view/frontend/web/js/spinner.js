@@ -4,27 +4,28 @@
  */
 define([
     'jquery',
-    'jquery/ui',
-    'MageKey_AdcPopup/js/model/popup'
-], function ($, ui, cartPopup) {
+    'jquery/ui'
+], function ($) {
     "use strict";
 
     $.widget('mage.mgkCartSpinner', $.ui.spinner, {
 
         options: {
-            updateItemQtyUrl: window.checkout && window.checkout.updateItemQtyUrl
-                ? window.checkout.updateItemQtyUrl
-                : null,
             incremental: false,
-            min: 1
+            min: 1,
+            updateAction: null
         },
 
         _value: function ( value, allowAny ) {
+            var self = this;
             var oldValue = this.element.val();
             this._super(value, allowAny);
-            if (oldValue != value) {
-                cartPopup.messages.clear();
-                this._updateItemQty(oldValue, value);
+            if (self.options.updateAction && oldValue != value) {
+                self.options.updateAction(value, function (response) {
+                    if (response.error_message) {
+                        self.element.val(oldValue);
+                    }
+                });
             }
         },
 
@@ -36,29 +37,6 @@ define([
                 "<a class='ui-spinner-button ui-spinner-down ui-corner-br'>" +
                     "<span class='ui-icon " + this.options.icons.down + "'>&#8722;</span>" +
                 "</a>";
-        },
-
-        _updateItemQty: function (oldValue, newValue) {
-            var self = this;
-            if (self.options.updateItemQtyUrl) {
-                $.ajax({
-                    url: self.options.updateItemQtyUrl,
-                    type: 'post',
-                    dataType: 'json',
-                    showLoader: true,
-                    data: {
-                        item_id: this.options.item_id,
-                        item_qty: newValue,
-                        form_key: $.mage.cookies.get('form_key')
-                    },
-                    success: function (response) {
-                        if (response.error_message) {
-                            self.element.val(oldValue);
-                            cartPopup.messages.addErrorMessage({message: response.error_message});
-                        }
-                    }
-                });
-            }
         }
     });
 

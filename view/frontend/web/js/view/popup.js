@@ -9,22 +9,16 @@ define([
     'underscore',
     'MageKey_AdcPopup/js/model/popup',
     'Magento_Customer/js/customer-data',
-    'Magento_Ui/js/modal/confirm',
     'mage/validation'
-], function (Component, $, ko, _, cartPopup, customerData, confirm) {
+], function (Component, $, ko, _, cartPopup, customerData) {
     'use strict';
 
     return Component.extend({
         isLoading: ko.observable(false),
-        items: ko.observableArray([]),
+        items: cartPopup.items,
         productList: ko.observableArray([]),
-        summaryItems: ko.observableArray([]),
-        messages: cartPopup.messages,
-        updateItemQtyUrl: window.checkout && window.checkout.updateItemQtyUrl
-            ? window.checkout.updateItemQtyUrl
-            : null,
-        removeItemUrl: window.checkout && window.checkout.removeItemUrl
-            ? window.checkout.removeItemUrl
+        checkoutUrl: window.checkout && window.checkout.checkoutUrl
+            ? window.checkout.checkoutUrl
             : null,
 
         /**
@@ -51,23 +45,10 @@ define([
             self.items.subscribe(function (val) {
                 if (val && val.length) {
                     cartPopup.showModal();
+                } else {
+                    cartPopup.closeModal();
                 }
             });
-        },
-
-        _updateData: function (data) {
-            if (data.items && data.items.length) {
-                var self = this,
-                    items = self._filterItems(data.items);
-                self.items([]);
-                if (data.product_list && data.product_list.length) {
-                    self.productList(data.product_list);
-                }
-                if (data.summary && data.summary.length) {
-                    self.summaryItems(data.summary);
-                }
-                self.items(items);
-            }
         },
 
         _filterItems: function (itemsIds) {
@@ -85,39 +66,16 @@ define([
             return items;
         },
 
-        isMultiple: function () {
-            return this.items().length > 1;
+        _updateData: function (data) {
+            if (data.items && data.items.length) {
+                var items = this._filterItems(data.items);
+                this.items(items);
+                this.productList(data.product_list);
+            }
         },
 
-        removeItem: function (item) {
-            var self = this;
-            if (self.removeItemUrl && item.item_id) {
-                confirm({
-                    content: $.mage.__('Are you sure you would like to remove this item from the shopping cart?'),
-                    actions: {
-                        confirm: function () {
-                            $.ajax({
-                                url: self.removeItemUrl,
-                                type: 'post',
-                                dataType: 'json',
-                                showLoader: true,
-                                data: {
-                                    item_id: item.item_id,
-                                    form_key: $.mage.cookies.get('form_key')
-                                },
-                                success: function (response) {
-                                    if (response.error_message) {
-                                        cartPopup.messages.addErrorMessage({message: response.error_message});
-                                    } else {
-                                        cartPopup.closeModal();
-                                    }
-                                }
-                            });
-                        }
-                    }
-                });
-            }
-            return false;
+        isMultiple: function () {
+            return this.items().length > 1;
         }
     });
 });

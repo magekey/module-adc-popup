@@ -4,15 +4,23 @@
  */
 define([
     'jquery',
+    'ko',
     'Magento_Ui/js/modal/modal',
     'mage/translate',
     'Magento_Ui/js/model/messageList'
-],function ($, modal, $t, messageList) {
+],function ($, ko, modal, $t, messageList) {
     'use strict';
 
     return {
         modalWindow: null,
         messages: messageList,
+        items: ko.observableArray([]),
+
+        removeItemById: function (item_id) {
+            this.items.remove(function (item) {
+                return item.item_id == item_id;
+            });
+        },
 
         /** Create popup window */
         createPopUp: function (element) {

@@ -110,7 +110,6 @@ class Popup extends \Magento\Framework\DataObject implements SectionSourceInterf
             $data = [
                 'items' => $items,
                 'product_list' => $this->getProductList($items),
-                'summary' => $this->getSummary(),
             ];
         }
         return $data;
@@ -169,37 +168,6 @@ class Popup extends \Magento\Framework\DataObject implements SectionSourceInterf
         }
 
         return $productList;
-    }
-
-    /**
-     * Get summary items
-     *
-     * @return array
-     */
-    public function getSummary()
-    {
-        $summaryItems = [];
-
-        $qty = (int)$this->checkoutCart->getSummaryQty();
-        $totals = $this->getQuote()->getTotals();
-
-        if (isset($totals['subtotal'])) {
-            $value = $totals['subtotal']->getValue();
-            $summaryItems[] = [
-                'label' => $qty . ' ' . __('product%1', $qty > 1 ? 's' : ''),
-                'value' => $this->checkoutHelper->formatPrice($totals['subtotal']->getValue()),
-            ];
-        }
-
-        if (isset($totals['shipping'])) {
-            $value = $totals['shipping']->getValue();
-            $summaryItems[] = [
-                'label' => $totals['shipping']->getTitle(),
-                'value' => __($value ? $this->checkoutHelper->formatPrice($value) : 'Free'),
-            ];
-        }
-
-        return $summaryItems;
     }
 
     /**
