@@ -195,9 +195,9 @@ class Popup extends \Magento\Framework\DataObject implements SectionSourceInterf
         $productCollection = $this->productCollectionFactory
             ->create()
             ->addAttributeToSelect('*')
-            ->addCategoriesFilter(['in' => $categoryIds])
             ->addFinalPrice()
             ->setVisibility($this->productVisibility->getVisibleInSiteIds());
+        $productCollection->addCategoriesFilter(['in' => $categoryIds]);
         if (!empty($affectedProductIds)) {
             $productCollection->addFieldToFilter('entity_id', ['nin' => $affectedProductIds]);
         }
