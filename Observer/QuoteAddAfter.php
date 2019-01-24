@@ -31,6 +31,7 @@ class QuoteAddAfter implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
+        $this->registry->unregister(DataHelper::REGISTER_ITEMS_KEY);
         $items = $observer->getItems();
         $this->registry->register(DataHelper::REGISTER_ITEMS_KEY, $items);
     }
