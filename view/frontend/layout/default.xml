@@ -17,7 +17,6 @@
                                 <item name="component" xsi:type="string">MageKey_AdcPopup/js/view/popup</item>
                                 <item name="config" xsi:type="array">
                                     <item name="template" xsi:type="string">MageKey_AdcPopup/popup</item>
-                                    <item name="continueShoppingUrl" xsi:type="url" path="/"/>
                                 </item>
                                 <item name="children" xsi:type="array">
                                     <item name="cartItem" xsi:type="array">
@@ -95,7 +94,7 @@
                                         </item>
                                     </item>
                                     <item name="summary.actions.continue" xsi:type="array">
-                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="component" xsi:type="string">MageKey_AdcPopup/js/view/summary/action-continue</item>
                                         <item name="config" xsi:type="array">
                                             <item name="template" xsi:type="string">MageKey_AdcPopup/summary/action-continue</item>
                                             <item name="displayArea" xsi:type="string">summaryActions</item>
