@@ -9,15 +9,19 @@
     background-position: @position;
 }
 
-.admin__page-nav-item,
-.admin__page-nav-item._active {
-    &.mgk-adcpopup {
-        .admin__page-nav-link,
-        .admin__page-nav-link:hover {
-            .setMageKeyLogo(
-                'MageKey_AdcPopup',
-                right 2rem center
-            );
+.admin__page-nav {
+    &,
+    &._collapsed,
+    &._show,
+    &._collapsed._show {
+        &.mgk {
+            .admin__page-nav-title,
+            .admin__page-nav-title:hover {
+                .setMageKeyLogo(
+                    'MageKey_AdcPopup',
+                    right 5rem center
+                );
+            }
         }
     }
 }
