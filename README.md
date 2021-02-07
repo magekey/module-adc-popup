@@ -10,4 +10,4 @@
 
 ## Installing the Extension
 
-    composer require magekey/module-adc-popup
+`composer require magekey/module-adc-popup`
