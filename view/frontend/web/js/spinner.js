@@ -4,7 +4,7 @@
  */
 define([
     'jquery',
-    'jquery/ui'
+    'jquery-ui-modules/spinner'
 ], function ($) {
     "use strict";
 
